@@ -1,11 +1,26 @@
 <h1><%= @cocktail.name %></h1>
 
-<h5 class="mt-5">Doses</h5>
-<ul >
-  <% @cocktail.doses.each do |dose| %>
-    <li><%= dose.description %> <%= dose.ingredient.name %></li>
-  <% end %>
-</ul>
+<h5 class="mt-5 text-center">Doses</h5>
+<div class="row">
+<div class="col">
+    <%= image_tag "mojito.jpeg", class: "mx-auto d-block" %>
+  </div>
+  <div class="col">
+  <ul class="list-unstyled">
+      <% @cocktail.doses.each do |dose| %>
+        <li class="list-unstyled-item">
+          <%= link_to dose_path(dose), method: :delete, data: {confirm: 'Are you sure?'} do %>
+            <i class="far fa-trash-alt"></i>
+          <% end %>
+          <%= dose.description %> <%= dose.ingredient.name %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  
+</div>
+ 
+
 <hr class="mt-5">
 <p></p>
 <h5 class="mt-5">Add dose</h5>
