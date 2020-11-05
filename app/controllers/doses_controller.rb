@@ -7,15 +7,11 @@ class DosesController < ApplicationController
   end
 
   def create
-    if dose_params['description'] == ''
-      @dose = Dose.new
-    else
-      @dose = Dose.new(description: dose_params['description'])
-      @dose.ingredient = Ingredient.find(dose_params['ingredient_id'])
-      @dose.cocktail = Cocktail.find(dose_params['cocktail_id'])
-    end
+    @cocktail = Cocktail.find(params['cocktail_id'])
+    @dose = Dose.new(dose_params)
+    @dose.cocktail = @cocktail
     if @dose.save
-      redirect_to cocktail_path(@dose.cocktail)
+      redirect_to cocktail_path(@cocktail)
     else
       render 'doses/new'
     end
