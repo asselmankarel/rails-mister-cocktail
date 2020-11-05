@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailsMisterCocktail</title>
+    <title>Happy boozing cocktails</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' defer: true%>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'%>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   </head>
 
   <body>
-    <%= yield %>
+    <div class="navbar bg-light">
+      <%= link_to 'Happy boozing cocktails 🥂', cocktails_path %>
+      <%= link_to 'Add cocktail', new_cocktail_path %>
+    </div>
+    
+    <div class="container mt-2">
+      <%= yield %>
+    </div>
   </body>
 </html>
