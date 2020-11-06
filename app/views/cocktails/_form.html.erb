@@ -1,5 +1,6 @@
 
 <%= simple_form_for @cocktail do |f| %>
   <%= f.input :name %>
+  <%= f.input :image, as: :file %>
   <%= f.submit nil, class: "btn btn-outline-primary"%>
 <% end %>

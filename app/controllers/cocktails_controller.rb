@@ -10,7 +10,7 @@ class CocktailsController < ApplicationController
   end
 
   def create
-    @cocktail = Cocktail.new(name: cocktail_params)
+    @cocktail = Cocktail.new(cocktail_params)
     if @cocktail.save
       redirect_to cocktail_path(@cocktail)
     else
@@ -28,7 +28,7 @@ class CocktailsController < ApplicationController
   end
 
   def update
-    @cocktail.update(name: cocktail_params)
+    @cocktail.update(cocktail_params)
     redirect_to cocktails_path
   end
 
@@ -41,7 +41,7 @@ class CocktailsController < ApplicationController
 
   def cocktail_params
     if params['cocktail']['name'] != ''
-      params.require(:cocktail).require(:name)
+      params.require(:cocktail).require(:name, :image)
     else
       nil
     end
