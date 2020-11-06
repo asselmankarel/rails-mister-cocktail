@@ -12,9 +12,13 @@
   </head>
 
   <body>
-    <div class="navbar py-3">
-      <%= link_to 'Happy boozing cocktails 🥂', cocktails_path %>
-      <%= link_to 'Add cocktail', new_cocktail_path %>
+    <div class="navbar py-2">
+      <%= link_to cocktails_path do %>
+        <h5>Happy boozing cocktails 🥂<h3>
+      <% end %>
+      <%= link_to new_cocktail_path  do %>
+        <h5>Add cocktail</h5>
+      <% end %>
     </div>
 
     <div class="container mt-3">
