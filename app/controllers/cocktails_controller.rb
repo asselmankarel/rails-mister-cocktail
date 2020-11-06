@@ -24,7 +24,7 @@ class CocktailsController < ApplicationController
     @dose.cocktail = @cocktail
     @review = Review.new
     @review.cocktail = @cocktail
-    @reviews = @cocktail.reviews
+    @reviews = @cocktail.reviews.last(5)
   end
 
   def edit

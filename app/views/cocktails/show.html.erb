@@ -4,11 +4,11 @@
 <div class="row">
   <div class="col">
     <% if @cocktail.image.attached? %>
-      <%= cl_image_tag @cocktail.image.key, width: 330, crop: :fill, class: "mx-auto d-block" %>
+      <%= cl_image_tag @cocktail.image.key, width: 360, crop: :fill, class: "mx-auto d-block" %>
     <% end %>
   </div>
   <div class="col">
-  <h3>Doses</h3>
+  <h3 class="mb-3">Doses</h3>
   <ul class="list-unstyled">
       <% @cocktail.doses.each do |dose| %>
         <li class="list-unstyled-item">
@@ -19,6 +19,24 @@
         </li>
       <% end %>
     </ul>
+    <hr class="mt-3">
+  
+    <h3 class="my-3">Reviews</h3>
+      <% @reviews.each do |review| %>
+        <ul class="list-unstyled">
+          <li class="list-unstyled-item">
+            <% review.score.times do %>
+              <i class="fas fa-star" style="color:#f0dbb2;"></i>
+            <% end %>
+            <% (5 - review.score).times do %>
+              <i class="far fa-star"></i>
+            <% end %>
+            </li>
+
+          <li class="list-unstyled-item"><%= review.comment %></li>
+
+        </ul>
+      <% end %>
   </div>
 </div>
  
@@ -38,17 +56,9 @@
   <div class="col">
     <h3 class="mt-2">Add review</h3>
     <%= simple_form_for [@cocktail, @review] do |f| %>
-      <%= f.input :score %>
+      <%= f.input :score, collection: 1..5%>
       <%= f.input :comment %>
       <%= f.submit class: "btn btn-outline-primary" %>
     <% end %>
   </div>
 </div>
-
-<hr class="mt-3">
-<h3 class="mt-2">Reviews</h3>
-<ul class="list-unstyled">
-  <% @reviews.each do |review| %>
-    <li class="list-unstyled-item">Score: <strong><%= review.score %></strong>, Comment: <strong><%= review.comment %></strong></li>
-  <% end %>
-</ul>

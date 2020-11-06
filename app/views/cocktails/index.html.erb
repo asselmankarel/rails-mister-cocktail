@@ -4,15 +4,16 @@
 <div class="row">
   <% @cocktails.each do |cocktail| %>
     <div class="col-lg-4 col-md-6 col-sm-12">
+    <%= link_to cocktail_path(cocktail) do %>
     <div class="card mb-3">
-      <%= link_to cocktail_path(cocktail) do %>
-        <div class="card-body">
+      
+        <div class="card-body p-0">
           <% if cocktail.image.attached? %>
-            <%= cl_image_tag cocktail.image.key, width: 175, crop: :fill, class: "mx-auto d-block" %>
+            <%= cl_image_tag cocktail.image.key, width: 300, crop: :fill, class: "mx-auto d-block" %>
           <% end %>
           <h5 class="card-title mt-3 text-center"><%= cocktail.name%></h5>
         </div>
-      <% end %>
+      
       <ul class="list-inline mx-auto">
         <li class="list-inline-item">
           <%= link_to edit_cocktail_path(cocktail) do %>
@@ -26,6 +27,7 @@
         </li>
       </ul>
     </div>
+    <% end %>
     </div>
   <% end %>
 </div>
