@@ -21,8 +21,15 @@ h4 {
   background-color: #f0dbb2;
 }
 .navbar a,
+.navbar h5 {
+  text-decoration: none;
+  color: #253746;
+  font-size: 1.2em;
+  font-weight: bolder;
+}
 .card a {
   text-decoration: none;
+  color: #253746;
 }
 a {
   transition: all ease-in-out;

@@ -8,8 +8,8 @@
     <% end %>
   </div>
   <div class="col">
-  <h3 class="mb-3">Doses</h3>
-  <ul class="list-unstyled">
+    <h3 class="mb-3">Doses</h3>
+    <ul class="list-unstyled">
       <% @cocktail.doses.each do |dose| %>
         <li class="list-unstyled-item">
           <%= link_to dose_path(dose), method: :delete, data: {confirm: 'Are you sure?'} do %>
@@ -19,17 +19,17 @@
         </li>
       <% end %>
     </ul>
-    <hr class="mt-3">
+    <hr class="mt-2">
   
-    <h3 class="my-3">Reviews</h3>
+    <h3 class="my-2">Reviews</h3>
       <% @reviews.each do |review| %>
         <ul class="list-unstyled">
           <li class="list-unstyled-item">
             <% review.score.times do %>
-              <i class="fas fa-star" style="color:#f0dbb2;"></i>
+              <i class="fas fa-star" style="color:#f0dbb2; font-size:0.8em;"></i>
             <% end %>
             <% (5 - review.score).times do %>
-              <i class="far fa-star"></i>
+              <i class="far fa-star" style="font-size:0.8em;"></i>
             <% end %>
             </li>
 
