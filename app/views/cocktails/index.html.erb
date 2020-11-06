@@ -7,7 +7,9 @@
     <div class="card mb-3">
       <%= link_to cocktail_path(cocktail) do %>
         <div class="card-body">
-          <%= image_tag "mojito.jpeg", class: "mx-auto d-block" %>
+          <% if cocktail.image.attached? %>
+            <%= cl_image_tag cocktail.image.key, height: 300, width: 400, crop: :fill, class: "mx-auto d-block" %>>
+          <% end %>
           <h5 class="card-title mt-3 text-center"><%= cocktail.name%></h5>
         </div>
       <% end %>

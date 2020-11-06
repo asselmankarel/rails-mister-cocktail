@@ -34,14 +34,15 @@ class CocktailsController < ApplicationController
 
   def destroy
     @cocktail.destroy
+    redirect_to cocktails_path
   end
 
 
   private
 
   def cocktail_params
-    if params['cocktail']['name'] != ''
-      params.require(:cocktail).require(:name, :image)
+    if params[:cocktail][:name] != ''
+      params.require(:cocktail).permit(:name, :image)
     else
       nil
     end
