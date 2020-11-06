@@ -32,11 +32,12 @@ h4 {
   color: #253746;
 }
 a {
-  transition: all ease-in-out;
+  transition: all ease-in-out 0.2s;
 }
 .navbar a:hover,
 .card a:hover {
   transform: scale(0.98);
+  color: #167ffb;
 }
 img {
   width: 100%;

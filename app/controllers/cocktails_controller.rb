@@ -2,7 +2,11 @@ class CocktailsController < ApplicationController
   before_action :set_cocktail, only: [:show, :edit, :update, :destroy]
 
   def index
-    @cocktails = Cocktail.all
+    if params.include?(:query)
+      @cocktails = Cocktail.where("lower(name) LIKE '%#{params[:query].downcase}%'")
+    else
+      @cocktails = Cocktail.all
+    end
   end
 
   def new

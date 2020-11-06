@@ -12,10 +12,22 @@
   </head>
 
   <body>
-    <div class="navbar pt-2 pb-0 px-3">
+    <div class="navbar pt-2 pb-1 px-3">
       <%= link_to cocktails_path do %>
         <h5>Happy cocktails 🥂</h5>
       <% end %>
+      
+      <form action="/cocktails" method="GET">
+      <div class="form-inline mt-n1">
+        <div class="form-group">
+          <input type="text" name="query" id="query" class="form-control">
+        </div>
+        <div class="form-group mx-2">
+          <input type="submit" value="Search" class="form-control btn btn-outline-primary">  
+        </div>
+      </div>
+      </form>
+     
       <%= link_to new_cocktail_path  do %>
         <h5>Add cocktail</h5>
       <% end %>
