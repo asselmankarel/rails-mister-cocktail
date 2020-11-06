@@ -1,2 +1,36 @@
 // Import page-specific CSS files here.
 @import "home";
+
+body {
+  background-color: #253746;
+  font-size: 1.3em;
+}
+.container {
+  color: whitesmoke;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: bolder;
+  color: #f0dbb2;
+}
+.navbar,
+.card {
+  background-color: #f0dbb2;
+}
+.navbar a {
+  color: #f34035;
+  text-decoration: none;
+}
+a {
+  transition: all ease-in-out;
+}
+.navbar a:hover {
+  transform: scale(1.03);
+}
+
+.card a {
+  color: #f34035;
+}

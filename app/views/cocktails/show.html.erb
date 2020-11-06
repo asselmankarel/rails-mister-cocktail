@@ -1,10 +1,10 @@
 <h1><%= @cocktail.name %></h1>
 
-<h5 class="mt-5 text-center">Doses</h5>
+<h3 class="mt-4 text-center">Doses</h3>
 <div class="row">
   <div class="col">
     <% if @cocktail.image.attached? %>
-      <%= cl_image_tag @cocktail.image.key, width: 250, crop: :fill, class: "mx-auto d-block" %>
+      <%= cl_image_tag @cocktail.image.key, width: 360, crop: :fill, class: "mx-auto d-block" %>
     <% end %>
   </div>
   <div class="col">
@@ -22,12 +22,19 @@
 </div>
  
 
-<hr class="mt-5">
-<p></p>
-<h5 class="mt-5">Add dose</h5>
-<%= simple_form_for [@cocktail, @dose] do |f| %>
-  <%= f.input :description %>
-  <%= f.association :ingredient, collection: @ingredients %>
-  <%= f.hidden_field :cocktail_id %>
-  <%= f.submit class: "btn btn-outline-primary" %>
-<% end %>
+<hr class="mt-4">
+<div class="row">
+  <div class="col">
+    <h3 class="mt-4">Add dose</h3>
+    <%= simple_form_for [@cocktail, @dose] do |f| %>
+      <%= f.input :description %>
+      <%= f.association :ingredient, collection: @ingredients %>
+      <%= f.hidden_field :cocktail_id %>
+      <%= f.submit class: "btn btn-outline-primary" %>
+    <% end %>
+  </div>
+    
+  <div class="col">
+  <h3 class="mt-4">Add review</h3>
+  </div>
+</div>
